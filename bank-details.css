@@ -1,0 +1,1790 @@
+/* =========================================================
+   SAHANYA STORE
+   BANK DETAILS PAGE
+   bank-details.css
+========================================================= */
+
+:root {
+    --black: #050505;
+    --black-2: #090909;
+    --black-3: #0e0e0e;
+
+    --yellow: #ffd21f;
+    --yellow-light: #ffe76a;
+
+    --white: #ffffff;
+    --text: #bdbdbd;
+    --gray: #666;
+    --border: rgba(255,255,255,0.08);
+
+    --yellow-border: rgba(255,210,31,0.25);
+
+    --gaming: "Orbitron", sans-serif;
+    --main: "Poppins", sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: var(--black);
+    color: var(--white);
+
+    font-family: var(--main);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.page-background {
+    position: fixed;
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,210,31,0.07),
+            transparent 38%
+        ),
+        #050505;
+}
+
+.bg-grid {
+    position: absolute;
+
+    width: 160%;
+    height: 100%;
+
+    left: -30%;
+    top: 25%;
+
+    opacity: 0.045;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.1) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.1) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    transform:
+        perspective(650px)
+        rotateX(65deg);
+}
+
+.bg-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 420px;
+    height: 420px;
+
+    right: -220px;
+    top: 15%;
+
+    background:
+        rgba(255,210,31,0.06);
+}
+
+.glow-two {
+    width: 350px;
+    height: 350px;
+
+    left: -200px;
+    bottom: 10%;
+
+    background:
+        rgba(255,210,31,0.04);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    z-index: 9999;
+
+    width:
+        min(1200px, calc(100% - 40px));
+
+    transform:
+        translateX(-50%);
+}
+
+.nav-container {
+    position: relative;
+
+    min-height: 70px;
+
+    padding: 0 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        rgba(7,7,7,0.78);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 7px;
+
+    white-space: nowrap;
+}
+
+.logo strong {
+    color: var(--white);
+
+    font-family: var(--gaming);
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--yellow);
+
+    font-family: var(--gaming);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+nav a {
+    position: relative;
+
+    padding: 11px 12px;
+
+    color: #858585;
+
+    font-family: var(--gaming);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--yellow);
+}
+
+nav a.active {
+    color: var(--yellow);
+}
+
+nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    width: 20px;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    border-radius: 20px;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 12px var(--yellow);
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+nav .whatsapp {
+    margin-left: 7px;
+
+    color: var(--yellow);
+
+    border:
+        1px solid var(--yellow-border);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,210,31,0.04);
+}
+
+nav .whatsapp:hover {
+    color: #050505;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 25px rgba(255,210,31,0.2);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 18px;
+    height: 2px;
+
+    border-radius: 5px;
+
+    background: var(--yellow);
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    width:
+        min(1050px, calc(100% - 40px));
+
+    margin: auto;
+
+    padding:
+        175px 0 70px;
+
+    text-align: center;
+}
+
+.header-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    color: #777;
+
+    border:
+        1px solid var(--yellow-border);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    backdrop-filter: blur(15px);
+
+    font-family: var(--gaming);
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.header-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 12px var(--yellow);
+
+    animation:
+        pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.65);
+    }
+}
+
+.page-header h1 {
+    margin-top: 23px;
+
+    color: var(--white);
+
+    font-family: var(--gaming);
+
+    font-size:
+        clamp(45px, 7vw, 80px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.page-header h1 strong {
+    display: block;
+
+    color: var(--yellow);
+
+    text-shadow:
+        0 0 35px rgba(255,210,31,0.13);
+}
+
+.page-header p {
+    max-width: 550px;
+
+    margin:
+        24px auto 0;
+
+    color: #6d6d6d;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   PAYMENT CONTAINER
+========================================================= */
+
+.payment-container {
+    width:
+        min(1150px, calc(100% - 40px));
+
+    margin:
+        auto;
+
+    padding-bottom:
+        80px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   PAYMENT CARD
+========================================================= */
+
+.payment-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 25px;
+
+    min-height: 430px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.012)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    animation:
+        card-in 0.7s ease both;
+}
+
+.payment-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.payment-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.payment-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.payment-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,210,31,0.3);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5),
+        0 0 35px rgba(255,210,31,0.035);
+}
+
+@keyframes card-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.payment-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -110px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,210,31,0.07);
+
+    filter:
+        blur(45px);
+
+    pointer-events: none;
+}
+
+.payment-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 20px;
+    right: 20px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,210,31,0.5),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.card-top {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+}
+
+.payment-icon {
+    width: 48px;
+    height: 48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--yellow);
+
+    border:
+        1px solid var(--yellow-border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,210,31,0.04);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+    box-shadow:
+        inset 0 0 20px rgba(255,210,31,0.02);
+}
+
+.payment-number {
+    color:
+        #383838;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================================
+   EZ CASH ICON
+========================================================= */
+
+.ez-icon {
+    color:
+        #050505;
+
+    background:
+        var(--yellow);
+
+    border-color:
+        var(--yellow);
+
+    box-shadow:
+        0 0 25px rgba(255,210,31,0.12);
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.payment-card h2 {
+    margin-top:
+        25px;
+
+    color:
+        var(--white);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        18px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.5px;
+}
+
+.card-line {
+    width:
+        35px;
+
+    height:
+        2px;
+
+    margin-top:
+        12px;
+
+    border-radius:
+        5px;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 12px rgba(255,210,31,0.3);
+}
+
+
+/* =========================================================
+   BANK DETAILS
+========================================================= */
+
+.bank-details {
+    margin-top:
+        28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        18px;
+}
+
+.detail-row {
+    padding-bottom:
+        14px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.055);
+}
+
+.detail-row:last-child {
+    border-bottom:
+        none;
+}
+
+.detail-row span {
+    display:
+        block;
+
+    color:
+        #4d4d4d;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.2px;
+}
+
+.detail-row strong {
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        #c8c8c8;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.3px;
+
+    word-break:
+        break-word;
+}
+
+
+/* =========================================================
+   EZ CASH MESSAGE
+========================================================= */
+
+.ez-message {
+    margin-top:
+        5px;
+
+    padding:
+        15px;
+
+    border:
+        1px solid rgba(255,210,31,0.09);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255,210,31,0.025);
+}
+
+.ez-message span {
+    color:
+        var(--yellow);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+}
+
+.ez-message p {
+    margin-top:
+        7px;
+
+    color:
+        #666;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.card-footer {
+    margin-top:
+        auto;
+
+    padding-top:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    border-top:
+        1px solid rgba(255,255,255,0.055);
+
+    color:
+        #404040;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+}
+
+.secure {
+    color:
+        var(--yellow);
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.payment-note {
+    width:
+        min(850px, calc(100% - 40px));
+
+    margin:
+        0 auto 70px;
+
+    padding:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        17px;
+
+    border:
+        1px solid rgba(255,210,31,0.12);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,210,31,0.025);
+}
+
+.note-icon {
+    width:
+        38px;
+
+    height:
+        38px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #050505;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--yellow);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        14px;
+
+    font-weight:
+        900;
+}
+
+.payment-note h3 {
+    color:
+        var(--yellow);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        1px;
+}
+
+.payment-note p {
+    margin-top:
+        6px;
+
+    color:
+        #666;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   PAYMENT CTA
+========================================================= */
+
+.payment-cta {
+    width:
+        min(1000px, calc(100% - 40px));
+
+    margin:
+        0 auto 100px;
+
+    padding:
+        65px 25px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid rgba(255,210,31,0.15);
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,210,31,0.05),
+            rgba(255,255,255,0.015)
+        );
+}
+
+.payment-cta > span {
+    color:
+        #555;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+}
+
+.payment-cta h2 {
+    margin-top:
+        12px;
+
+    color:
+        var(--white);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        clamp(25px, 5vw, 45px);
+
+    font-weight:
+        900;
+}
+
+.payment-cta h2 strong {
+    color:
+        var(--yellow);
+}
+
+.payment-cta p {
+    margin:
+        13px auto 25px;
+
+    max-width:
+        480px;
+
+    color:
+        #666;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.cta-button {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        45px;
+
+    padding:
+        0 22px;
+
+    color:
+        #050505;
+
+    border:
+        1px solid var(--yellow);
+
+    border-radius:
+        7px;
+
+    background:
+        var(--yellow);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.8px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.cta-button:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--yellow-light);
+
+    box-shadow:
+        0 12px 35px rgba(255,210,31,0.18);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        60px 20px 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+
+    background:
+        #030303;
+}
+
+.footer-inner {
+    width:
+        min(1150px, 100%);
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        40px;
+}
+
+.footer-logo {
+    color:
+        var(--white);
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        18px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+}
+
+.footer-logo span {
+    margin-left:
+        5px;
+
+    color:
+        var(--yellow);
+
+    font-size:
+        8px;
+}
+
+.footer-inner p {
+    max-width:
+        300px;
+
+    margin-top:
+        12px;
+
+    color:
+        #505050;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.8;
+}
+
+.footer-links {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        16px;
+}
+
+.footer-links a {
+    color:
+        #5d5d5d;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        1px;
+
+    transition:
+        color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color:
+        var(--yellow);
+}
+
+.footer-bottom {
+    width:
+        min(1150px, 100%);
+
+    margin:
+        40px auto 0;
+
+    padding-top:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+    color:
+        #3f3f3f;
+
+    font-family:
+        var(--gaming);
+
+    font-size:
+        6px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    nav a {
+        padding:
+            9px 7px;
+
+        font-size:
+            7px;
+    }
+
+    nav .whatsapp {
+        display:
+            none;
+    }
+
+    .payment-container {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .payment-card:last-child {
+        grid-column:
+            1 / -1;
+
+        max-width:
+            500px;
+
+        width:
+            100%;
+
+        margin:
+            auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        top:
+            10px;
+
+        width:
+            calc(100% - 20px);
+    }
+
+    .nav-container {
+        min-height:
+            60px;
+
+        padding:
+            0 15px;
+
+        border-radius:
+            15px;
+    }
+
+    .logo strong {
+        font-size:
+            13px;
+    }
+
+    .logo span {
+        font-size:
+            7px;
+    }
+
+    .menu-icon {
+        display:
+            flex;
+    }
+
+    nav {
+        position:
+            absolute;
+
+        top:
+            calc(100% + 10px);
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        padding:
+            10px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            2px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius:
+            16px;
+
+        background:
+            rgba(7,7,7,0.97);
+
+        backdrop-filter:
+            blur(25px);
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+        pointer-events:
+            none;
+
+        transform:
+            translateY(-10px);
+
+        transition:
+            0.3s ease;
+    }
+
+    nav a {
+        width:
+            100%;
+
+        padding:
+            14px;
+
+        text-align:
+            center;
+
+        font-size:
+            8px;
+    }
+
+    nav a.active::after {
+        display:
+            none;
+    }
+
+    nav .whatsapp {
+        display:
+            block;
+
+        margin:
+            5px 0 0;
+    }
+
+    #menu-toggle:checked ~ nav {
+        opacity:
+            1;
+
+        visibility:
+            visible;
+
+        pointer-events:
+            auto;
+
+        transform:
+            translateY(0);
+    }
+
+    #menu-toggle:checked
+    + .menu-icon
+    span:nth-child(1) {
+        transform:
+            translateY(7px)
+            rotate(45deg);
+    }
+
+    #menu-toggle:checked
+    + .menu-icon
+    span:nth-child(2) {
+        opacity:
+            0;
+    }
+
+    #menu-toggle:checked
+    + .menu-icon
+    span:nth-child(3) {
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+    }
+
+
+    /* HEADER */
+
+    .page-header {
+        width:
+            calc(100% - 30px);
+
+        padding:
+            130px 0 55px;
+    }
+
+    .page-header h1 {
+        font-size:
+            clamp(40px, 12vw, 60px);
+
+        letter-spacing:
+            -2px;
+    }
+
+
+    /* PAYMENT */
+
+    .payment-container {
+        width:
+            calc(100% - 30px);
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            15px;
+
+        padding-bottom:
+            60px;
+    }
+
+    .payment-card {
+        min-height:
+            400px;
+
+        padding:
+            21px;
+    }
+
+    .payment-card:last-child {
+        grid-column:
+            auto;
+
+        max-width:
+            none;
+    }
+
+
+    /* NOTE */
+
+    .payment-note {
+        width:
+            calc(100% - 30px);
+
+        margin-bottom:
+            55px;
+
+        align-items:
+            flex-start;
+
+        padding:
+            17px;
+    }
+
+
+    /* CTA */
+
+    .payment-cta {
+        width:
+            calc(100% - 30px);
+
+        margin-bottom:
+            70px;
+
+        padding:
+            50px 20px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-inner {
+        flex-direction:
+            column;
+    }
+
+    .footer-bottom {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            10px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .page-header {
+        padding-top:
+            120px;
+    }
+
+    .page-header h1 {
+        font-size:
+            38px;
+    }
+
+    .page-header p {
+        font-size:
+            10px;
+    }
+
+    .payment-card {
+        min-height:
+            390px;
+
+        padding:
+            18px;
+    }
+
+    .payment-card h2 {
+        font-size:
+            16px;
+    }
+
+    .detail-row strong {
+        font-size:
+            8px;
+    }
+
+    .payment-note {
+        gap:
+            12px;
+    }
+
+    .note-icon {
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            12px;
+    }
+
+    .payment-cta h2 {
+        font-size:
+            26px;
+    }
+
+    .cta-button {
+        width:
+            100%;
+
+        font-size:
+            6px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .logo strong {
+        font-size:
+            11px;
+    }
+
+    .logo span {
+        font-size:
+            6px;
+    }
+
+    .payment-card {
+        padding:
+            16px;
+    }
+
+    .payment-icon {
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+    .payment-card h2 {
+        font-size:
+            14px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
